@@ -53,6 +53,21 @@ function addToFavFunction(req,res){
 
 }
 
+server.post('/getfav',getFavHandler)
+
+function getFavHandler(req,res){
+    body=req.body;
+    ModuleSchema.find({email:body.email},(error,data)=>{
+        if(error){console.log(error)}
+        else{
+          res.send(data);   
+        }
+    })
+
+
+
+}
+
 
 
 
